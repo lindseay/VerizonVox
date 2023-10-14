@@ -6,9 +6,11 @@ const ProductListing1 = () => {
   return (
     <div className="rounded-image-container">
         <img src={imageUrl} alt="image 1" className= "shrink-image" />
-        <h5> Apple iPad (10th Generation) </h5>
-        <h6>Retail price: $599.99</h6>
-        <h6>4.6/5 stars</h6>
+        <div className="listing-info">
+            <h5 style={{ fontWeight: 'bold' }}> Apple iPad (10th Generation) </h5>
+            <h6 style={{ color: 'grey' }}>Retail price: $599.99</h6>
+            <h6 style={{ color: 'grey' }}>4.6/5 stars</h6>
+        </div>
     </div>
   );
 };

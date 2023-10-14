@@ -6,9 +6,11 @@ const ProductListing3 = () => {
   return (
     <div className="rounded-image-container">
         <img src={imageUrl} alt="image 3" className= "shrink-image" />
-        <h5>Orbic Chromebook</h5>
-        <h6>Retail price: $329.99</h6>
-        <h6>4.0/5 stars</h6>
+        <div className="listing-info">
+            <h5 style={{ fontWeight: 'bold' }}>Orbic Chromebook</h5>
+            <h6 style={{ color: 'grey' }}>Retail price: $329.99</h6>
+            <h6 style={{ color: 'grey' }}>4.0/5 stars</h6>
+        </div>
     </div>
   );
 };

@@ -16,3 +16,11 @@
     width: 100%;
     height: auto; 
   }
+
+  .listing-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 15px;
+  }
