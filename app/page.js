@@ -3,12 +3,16 @@ import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import Replicate from "replicate";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 export default function Home() {
   const [prediction, setPrediction] = useState(null);
   const [error, setError] = useState(null);
+  const replicate = new Replicate({
+    auth: process.env.REPLICATE_API_TOKEN,
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,12 +20,15 @@ export default function Home() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
       },
       body: JSON.stringify({
-        prompt: e.target.prompt.value,
+        //image: "https://avatars.githubusercontent.com/u/147882946?v=4"
+        image: "https://replicate.delivery/mgxm/8b4d747d-feca-477d-8069-ee4d5f89ad8e/a_high_detail_shot_of_a_cat_wearing_a_suit_realism_8k_-n_9_.png"
       }),
     });
     let prediction = await response.json();
+    console.log(prediction);
     if (response.status !== 201) {
       setError(prediction.detail);
       return;
@@ -42,6 +49,7 @@ export default function Home() {
       console.log({prediction})
       setPrediction(prediction);
     }
+    
   };
 
   return (
@@ -65,14 +73,7 @@ export default function Home() {
       {prediction && (
         <div>
             {prediction.output && (
-              <div className={styles.imageWrapper}>
-              <Image
-                fill
-                src={prediction.output[prediction.output.length - 1]}
-                alt="output"
-                sizes='100vw'
-              />
-              </div>
+              prediction.output
             )}
             <p>status: {prediction.status}</p>
         </div>
