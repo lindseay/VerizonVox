@@ -11,6 +11,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "pbxt.replicate.delivery",
       },
+      {
+        protocol: "https",
+        hostname: "i.postimg.cc"
+      }
     ],
   },
 };
