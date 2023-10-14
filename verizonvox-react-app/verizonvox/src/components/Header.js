@@ -28,6 +28,11 @@ const Header = () => {
     marginLeft: '300px',
   };
 
+  const shoppingBagStyle = {
+    color: 'lightgrey', // Set the color to white
+    fontSize: '1.5rem', // Adjust the icon size
+    marginRight: '50px', // Add some spacing to the right
+  };
   
   return (
     <nav style={headerStyle}>
@@ -52,6 +57,7 @@ const Header = () => {
            <span style={signInStyle}>Sign In</span>
           </div>}
       </div>
+      <i className="fas fa-shopping-bag" style={shoppingBagStyle}></i> {/* Shopping bag icon */}
     </nav>
   );
 };
