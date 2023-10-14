@@ -1,12 +1,12 @@
 import React from 'react';
-import image1 from '../verizon-product-images/image1.jpg';
+import image4 from '../public/verizon-product-images/razor-edge-5g.png';
 
-const ProductListing1 = () => {
+const ProductListing4 = () => {
   return (
     <div className="product-item">
-      <img src={image1} alt="Product 1" />
+      <img src={image4} alt="Product 4" />
     </div>
   );
 };
 
-export default ProductListing1;
+export default ProductListing4;

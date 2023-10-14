@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import ProductListing1 from './components/ProductListing1.js';
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       </div>
       <div className = "grey-section">
         <div className="divider"></div>
+        <ProductListing1/>
       </div>
     </div>
   );

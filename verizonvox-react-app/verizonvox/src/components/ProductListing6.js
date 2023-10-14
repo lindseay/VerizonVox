@@ -1,12 +1,12 @@
 import React from 'react';
-import image1 from '../verizon-product-images/image1.jpg';
+import image6 from '../public/verizon-product-images/samsung-galaxy-tab-s85g.jpg';
 
-const ProductListing1 = () => {
+const ProductListing6 = () => {
   return (
     <div className="product-item">
-      <img src={image1} alt="Product 1" />
+      <img src={image6} alt="Product 6" />
     </div>
   );
 };
 
-export default ProductListing1;
+export default ProductListing6;
