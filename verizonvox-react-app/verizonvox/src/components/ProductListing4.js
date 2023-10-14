@@ -1,10 +1,11 @@
 import React from 'react';
-import image4 from '../public/verizon-product-images/razor-edge-5g.png';
+import './styles.css';
 
 const ProductListing4 = () => {
+  const imageUrl = process.env.PUBLIC_URL + '/verizon-product-images/razer-edge-5g.png';
   return (
-    <div className="product-item">
-      <img src={image4} alt="Product 4" />
+    <div className="rounded-image-container">
+        <img src={imageUrl} alt="image 4" className= "shrink-image" />
     </div>
   );
 };

@@ -1,12 +1,13 @@
 import React from 'react';
-import image2 from '../public/verizon-product-images/orbic-airsurf.png';
+import './styles.css';
 
 const ProductListing2 = () => {
-  return (
-    <div className="product-item">
-      <img src={image2} alt="Product 2" />
-    </div>
-  );
+    const imageUrl = process.env.PUBLIC_URL + '/verizon-product-images/orbic-airsurf.png';
+    return (
+      <div className="rounded-image-container">
+          <img src={imageUrl} alt="image 2" className= "shrink-image" />
+      </div>
+    );
 };
 
 export default ProductListing2;

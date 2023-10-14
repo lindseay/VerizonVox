@@ -1,10 +1,11 @@
 import React from 'react';
-import image5 from '../public/verizon-product-images/samsung-galaxy-tab-a7lite.png';
+import './styles.css';
 
 const ProductListing5 = () => {
+  const imageUrl = process.env.PUBLIC_URL + '/verizon-product-images/samsung-galaxy-tab-a7lite.png';
   return (
-    <div className="product-item">
-      <img src={image5} alt="Product 5" />
+    <div className="rounded-image-container">
+        <img src={imageUrl} alt="image 5" className= "shrink-image" />
     </div>
   );
 };

@@ -18,8 +18,12 @@ h1 {
   }
   
   .grey-section {
-    background-color: #E6E8EA; /* Background color for the light gray section */
+    background-color: #EEEEF1; /* Background color for the light gray section */
     flex: 1;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 70px;
+    padding-bottom: 70px;
   }
 
   .divider {
@@ -29,8 +33,15 @@ h1 {
     position: absolute; /* Position it absolutely */
     transform: translateY(-50%); /* Center the line vertically */
   }
-  
-  
-  
+
+  .row-of-products {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+  }
+
+  .space-between-rows {
+    padding: 35px;
+  }
   
   
