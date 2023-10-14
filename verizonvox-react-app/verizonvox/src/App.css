@@ -1,6 +1,36 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Set the container's height to 100% of the viewport height */
+  }
+
 h1 {
     font-size: 28px; /* Adjust the font size to your preference */
     font-weight: bold;
     padding: 30px;
     margin-left: 60px;
   }
+
+  .white-section {
+    background-color: white; /* Background color for the white section */
+    padding: 20px; /* Add padding for content within the white section */
+    height: 1.5in; /* Set the height to approximately 2 inches */
+  }
+  
+  .grey-section {
+    background-color: #E6E8EA; /* Background color for the light gray section */
+    flex: 1;
+  }
+
+  .divider {
+    background-color: #CECED0; /* Dark gray line color */
+    height: 2px; /* Set the height of the line */
+    width: 100%; /* The line spans the width of the container */
+    position: absolute; /* Position it absolutely */
+    transform: translateY(-50%); /* Center the line vertically */
+  }
+  
+  
+  
+  
+  
