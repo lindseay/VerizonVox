@@ -8,6 +8,7 @@ import Replicate from "replicate";
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 export default function Home() {
+  const msg = new SpeechSynthesisUtterance();
   const [prediction, setPrediction] = useState(null);
   const [error, setError] = useState(null);
   const replicate = new Replicate({
@@ -34,11 +35,13 @@ export default function Home() {
         //image: "https://i.postimg.cc/gkM73gkt/laptop.png"
         //        https%3A%2F%2Fi.postimg.cc%2FgkM73gkt%2Flaptop.png
         image: query,
-        prompt: "Describe this contents of this image in the style of a product description."
+        prompt: "Describe this contents of this image in the style of a product description. Be concise and limit to 2 sentences."
       }),
     });
+    msg.text = "Loading...";
+    window.speechSynthesis.speak(msg);
     let prediction = await response.json();
-    console.log(prediction);
+    //console.log(prediction);
     if (response.status !== 201) {
       setError(prediction.detail);
       return;
@@ -55,6 +58,12 @@ export default function Home() {
       if (response.status !== 200) {
         setError(prediction.detail);
         return;
+      }
+      console.log("RESPONSE");
+      console.log(prediction.output);
+      if (prediction.output != undefined) {
+        msg.text = prediction.output;
+        window.speechSynthesis.speak(msg);
       }
       console.log({prediction})
       setPrediction(prediction);
@@ -88,15 +97,6 @@ export default function Home() {
       </form>
 
       {error && <div>{error}</div>}
-
-      {prediction && (
-        <div>
-            {prediction.output && (
-              prediction.output
-            )}
-            <p>status: {prediction.status}</p>
-        </div>
-      )}
     </div>
   );
 }
