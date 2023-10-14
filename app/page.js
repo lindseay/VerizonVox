@@ -33,7 +33,8 @@ export default function Home() {
         //image: "https://replicate.delivery/mgxm/8b4d747d-feca-477d-8069-ee4d5f89ad8e/a_high_detail_shot_of_a_cat_wearing_a_suit_realism_8k_-n_9_.png"
         //image: "https://i.postimg.cc/gkM73gkt/laptop.png"
         //        https%3A%2F%2Fi.postimg.cc%2FgkM73gkt%2Flaptop.png
-        image: query
+        image: query,
+        prompt: "Describe this contents of this image in the style of a product description."
       }),
     });
     let prediction = await response.json();
