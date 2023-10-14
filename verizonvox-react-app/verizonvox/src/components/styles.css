@@ -1,10 +1,15 @@
 .rounded-image-container {
     width: 335px;
-    height: 410px;
+    height: 430px;
     border-radius: 20px; /* Adjust the border radius to make it more or less rounded */
     overflow: hidden;
     background-color: white; /* Set the background color to white */
     padding: 30px;
+    transition: transform 0.3s ease;
+  }
+
+  .rounded-image-container:hover {
+    transform: scale(1.1);
   }
 
   .shrink-image {

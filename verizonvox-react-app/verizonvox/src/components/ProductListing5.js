@@ -6,6 +6,9 @@ const ProductListing5 = () => {
   return (
     <div className="rounded-image-container">
         <img src={imageUrl} alt="image 5" className= "shrink-image" />
+        <h5>Samsung Galaxy Tab S7 FE 5G</h5>
+        <h6>Retail price: $199.99</h6>
+        <h6>3.9/5 stars</h6>
     </div>
   );
 };
