@@ -3,49 +3,39 @@ import { useState } from "react";
 import React from 'react';
 import './styles.css';
 import Header from './Header.js';
-import Replicate from "replicate";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const ProductListing1Page = (props) => {
-  const msg = new SpeechSynthesisUtterance();
+
+
+  const {title, description, image } = props;
+
   const [prediction, setPrediction] = useState(null);
   const [error, setError] = useState(null);
-  const replicate = new Replicate({
-    auth: process.env.REPLICATE_API_TOKEN,
-  });
 
   const handleSubmit = async (e) => {
+
+    const msg = new SpeechSynthesisUtterance();
+
     
-    /*
-    let image_source = e.nativeEvent.target.src;
-    let query = image_source.split("?url=")[1];
-    query = query.split("&")[0];
-    query = query.replaceAll("%2F", "/");
-    query = query.replaceAll("%3A", ":");
-    */
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     let query = "https://i.postimg.cc/gkM73gkt/laptop.png";
     e.preventDefault();
-    const response = await fetch("https://api.replicate.com/v1/api/predictions", {
+    const response = await fetch("https://api.replicate.com/v1/predictions", {
       mode: "no-cors",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
+        "Authorization": "Token r8_8nnFhxYeOKqYyuCZArrYVNBb2zVUIKO45qOP9"
       },
       body: JSON.stringify({
-        //image: "https://avatars.githubusercontent.com/u/147882946?v=4"
-        //image: "https://replicate.delivery/mgxm/8b4d747d-feca-477d-8069-ee4d5f89ad8e/a_high_detail_shot_of_a_cat_wearing_a_suit_realism_8k_-n_9_.png"
-        //image: "https://i.postimg.cc/gkM73gkt/laptop.png"
-        //        https%3A%2F%2Fi.postimg.cc%2FgkM73gkt%2Flaptop.png
         image: query,
         prompt: "Describe this contents of this image in the style of a product description. Be concise and limit to 2 sentences."
       }),
     });
     msg.text = "Loading...";
     window.speechSynthesis.speak(msg);
-    //console.log(response.json());
     let prediction = await response.json();
-    //console.log(prediction);
     if (response.status !== 201) {
       setError(prediction.detail);
       return;
@@ -57,7 +47,7 @@ const ProductListing1Page = (props) => {
       prediction.status !== "failed"
     ) {
       await sleep(1000);
-      const response = await fetch("/api/predictions/" + prediction.id);
+      const response = await fetch("https://api.replicate.com/v1/predictions/" + prediction.id);
       prediction = await response.json();
       if (response.status !== 200) {
         setError(prediction.detail);
@@ -74,8 +64,6 @@ const ProductListing1Page = (props) => {
     }
     
   };
-
-  const {title, description, image } = props;
 
   const productRightSideDetailsImageUrl = process.env.PUBLIC_URL + '/verizon-product-images/product-pages-right-side.png';
   return (
