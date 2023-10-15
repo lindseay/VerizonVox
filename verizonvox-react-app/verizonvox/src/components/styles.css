@@ -31,3 +31,7 @@
     flex-direction: column;
     padding-top: 15px;
   }
+
+  .link-no-underline {
+    text-decoration: none;
+  }
