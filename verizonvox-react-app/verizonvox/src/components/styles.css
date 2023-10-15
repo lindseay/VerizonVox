@@ -6,6 +6,8 @@
     background-color: white; /* Set the background color to white */
     padding: 30px;
     transition: transform 0.3s ease;
+    display: grid;
+    place-items: center;
   }
 
   .rounded-image-container:hover {
@@ -15,6 +17,11 @@
   .shrink-image {
     width: 100%;
     height: auto; 
+  }
+
+  .shrink-image-5 {
+    width: 55%;
+    height: auto;
   }
 
   .listing-info {
