@@ -47,7 +47,7 @@ const ProductPage = () => {
     <div>
     <Header />
     <div className="white-section">
-      <h1>Tablets and Computers</h1>
+      <h1>Tablets and Computers (Click Shift to play instructions for Audio instructions) </h1>
     </div>
     <div className="divider"></div>
     <div className="grey-section">

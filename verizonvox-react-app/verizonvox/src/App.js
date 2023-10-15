@@ -2,7 +2,7 @@ import Header from './components/Header.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import React, { useState, useEffect, useRef} from 'react';
-import { BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes, useLocation} from 'react-router-dom';
 // The main Product Page
 import ProductPage from './components/ProductPage.js';
 // Product Listing component pages 
@@ -44,7 +44,7 @@ const products = [
 
 const App = () => {
   const msg = useRef(new SpeechSynthesisUtterance());
-    msg.current.text = "Welcome to Verizon's Tablets & Laptops product page. Click space to navigate through the contents of the page. Click back to go back to the previous page. Click shift to hear the current audio again.";
+    msg.current.text = "Welcome to Verizon's Tablets & Laptops product page. Click right and left arrow keys to navigate through the contents of the page. Click back to go back to the previous page. Click shift to hear the current audio again.";
   
     useEffect(() => {
       // Function to handle the "Shift" key press
@@ -85,9 +85,8 @@ const App = () => {
           ))
         }
       </Routes>
-      window.speechSynthesis.speak(msg);
       </div>
   );
 };
 
-export default App;
+export default App; 
