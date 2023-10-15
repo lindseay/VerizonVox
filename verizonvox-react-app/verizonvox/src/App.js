@@ -41,7 +41,30 @@ const products = [
   },
 ];
 
+
 const App = () => {
+  const msg = useRef(new SpeechSynthesisUtterance());
+    msg.current.text = "Welcome to Verizon's Tablets & Laptops product page. Click space to navigate through the contents of the page. Click back to go back to the previous page. Click shift to hear the current audio again.";
+  
+    useEffect(() => {
+      // Function to handle the "Shift" key press
+      const handleKeyPress = (event) => {
+        if (event.key === 'Shift') {
+          // Speak the message again
+          window.speechSynthesis.speak(msg.current);
+        }
+      };
+  
+      // Add an event listener for "keydown" events on the document
+      document.addEventListener('keydown', handleKeyPress);
+  
+      return () => {
+        // Remove the event listener when the component unmounts
+        document.removeEventListener('keydown', handleKeyPress);
+      };
+    }, []); // Empty dependency array for mounting and unmounting only
+    
+
   return (
     <div className="app">
       <Routes>
@@ -62,6 +85,7 @@ const App = () => {
           ))
         }
       </Routes>
+      window.speechSynthesis.speak(msg);
       </div>
   );
 };
