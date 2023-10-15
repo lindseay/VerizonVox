@@ -1,10 +1,10 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## How to run VerizonVox 
-1.) Clone the repository
-2.) run 'npm run dev' in the most top level directory (VerizonVox/)
-3.) run 'npm run start' in the directory VerizonVox/verizonvox-react-app/verizonvox/
-4.) The app is on localhost:3001
+1.) Clone the repository\
+2.) run 'npm run dev' in the most top level directory (VerizonVox/)\
+3.) run 'npm run start' in the directory VerizonVox/verizonvox-react-app/verizonvox/\
+4.) The app is on localhost:3001\
 
 ## Getting Started
 
