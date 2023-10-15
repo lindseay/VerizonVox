@@ -1,9 +1,11 @@
 import React from 'react';
 import './styles.css';
+import { Link } from 'react-router-dom';
 
 const ProductListing5 = () => {
   const imageUrl = process.env.PUBLIC_URL + '/verizon-product-images/samsung-galaxy-tab-a7lite.png';
   return (
+    <Link to="/productlisting5page" className="link-no-underline">
     <div className="rounded-image-container">
         <img src={imageUrl} alt="image 5" className= "shrink-image-5" />
         <div className="listing-info">
@@ -12,6 +14,7 @@ const ProductListing5 = () => {
             <h6 style={{ color: 'grey' }}>3.9/5 stars</h6>
         </div>
     </div>
+    </Link>
   );
 };
 
