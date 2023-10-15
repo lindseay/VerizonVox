@@ -23,6 +23,7 @@ export default function Home() {
     query = query.replaceAll("%2F", "/");
     query = query.replaceAll("%3A", ":");
     e.preventDefault();
+    /*
     const response = await fetch("/api/predictions", {
       method: "POST",
       headers: {
@@ -38,6 +39,23 @@ export default function Home() {
         prompt: "Describe this contents of this image in the style of a product description. Be concise and limit to 2 sentences."
       }),
     });
+    */
+    const output = await replicate.run(
+      "daanelson/minigpt-4:b96a2f33cc8e4b0aa23eacfce731b9c41a7d9466d9ed4e167375587b54db9423",
+      {
+        method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
+      },
+        input: {
+          image: "https://i.postimg.cc/gkM73gkt/laptop.png",
+          prompt: "Describe this contents of this image in the style of a product description. Be concise and limit to 2 sentences."
+        }
+      }
+    );
+    console.log(output);
+    /*
     msg.text = "Loading...";
     window.speechSynthesis.speak(msg);
     let prediction = await response.json();
@@ -68,6 +86,7 @@ export default function Home() {
       console.log({prediction})
       setPrediction(prediction);
     }
+    */
     
   };
 
