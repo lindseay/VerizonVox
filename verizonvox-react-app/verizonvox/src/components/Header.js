@@ -37,13 +37,13 @@ const Header = () => {
   return (
     <nav style={headerStyle}>
       <div className="container">
-      <img
+      <a href="/"><img
           src="/verizon-product-images/verizon-red-icon-black_inPixio.png"
           alt="Verizon Icon"
           style={{ width: '40px', height: '40px' }} // Adjusting the width and height 
           className="mr-3" // Optional Bootstrap margin
         />
-        <span className="navbar-brand">hi</span>
+        </a>
         {/* Add navigation links or other content here */}
       </div>
       <div style={centerTextStyle}>

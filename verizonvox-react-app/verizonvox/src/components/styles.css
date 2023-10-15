@@ -8,6 +8,7 @@
     transition: transform 0.3s ease;
     display: grid;
     place-items: center;
+    margin: 20px;
   }
 
   .rounded-image-container:hover {
