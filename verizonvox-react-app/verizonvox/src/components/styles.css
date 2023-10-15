@@ -24,6 +24,17 @@
     height: auto;
   }
 
+  .product-page-image {
+    width: 30%;
+    height: auto;
+  }
+  
+  .product-page-right-side-image {
+    width: 30%;
+    margin-left: 70px;
+    height: auto;
+  }
+
   .listing-info {
     display: flex;
     justify-content: center;
@@ -35,4 +46,25 @@
   .link-no-underline {
     text-decoration: none;
     color: black;
+  }
+
+  .horizontal-divider {
+    border-top: 5px solid #ECEEF1;
+    margin: 10px 0;
+  }
+
+  .product-page-description {
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 300px;
+  }
+
+  .horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
   }
