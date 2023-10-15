@@ -37,7 +37,10 @@ h1 {
   .row-of-products {
     display: flex; 
     justify-content: space-between; 
-    align-items: center; 
+  }
+
+  .row-of-products > div {
+    align-self: flex-start;
   }
 
   .space-between-rows {
@@ -45,7 +48,8 @@ h1 {
   }
 
   .enlarged-product {
-    border: 5px solid #FAF6AE;
+    border: 3px solid #FAF6AE;
     border-radius: 25px;
+    box-sizing: border-box;
   }
   
