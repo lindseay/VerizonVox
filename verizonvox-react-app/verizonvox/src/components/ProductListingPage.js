@@ -3,11 +3,13 @@ import { useState } from "react";
 import React from 'react';
 import './styles.css';
 import Header from './Header.js';
-import Replicate from "replicate";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const ProductListing1Page = (props) => {
-  const msg = new SpeechSynthesisUtterance();
+
+
+  const {title, description, image } = props;
+
   const [prediction, setPrediction] = useState(null);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
@@ -42,41 +44,8 @@ const ProductListing1Page = (props) => {
       console.log(data);
     }
     let prediction = data;
-    //console.log(prediction);
-    /*
-    if (response.status !== 201) {
-      setError(prediction.detail);
-      return;
-    }
-    */
     setPrediction(prediction);
-
-    /*
-    while (
-      prediction.status !== "succeeded" &&
-      prediction.status !== "failed"
-    ) {
-      await sleep(1000);
-      const response = await fetch("/api/predictions/" + prediction.id);
-      prediction = await response.json();
-      if (response.status !== 200) {
-        setError(prediction.detail);
-        return;
-      }
-      console.log("RESPONSE");
-      console.log(prediction.output);
-      if (prediction.output != undefined) {
-        msg.text = prediction.output;
-        window.speechSynthesis.speak(msg);
-      }
-      console.log({prediction})
-      setPrediction(prediction);
-    }
-    */
-    
   };
-
-  const {title, description, image } = props;
 
   const productRightSideDetailsImageUrl = process.env.PUBLIC_URL + '/verizon-product-images/product-pages-right-side.png';
   return (
