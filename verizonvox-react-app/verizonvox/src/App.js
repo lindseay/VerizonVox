@@ -50,7 +50,7 @@ const App = () => {
       // Function to handle the "Shift" key press
       const handleKeyPress = (event) => {
         if (event.key === 'Shift') {
-          // Speak the message again
+          // Play the preliminary audio 
           window.speechSynthesis.speak(msg.current);
         }
       };
@@ -63,7 +63,7 @@ const App = () => {
         document.removeEventListener('keydown', handleKeyPress);
       };
     }, []); // Empty dependency array for mounting and unmounting only
-    
+
 
   return (
     <div className="app">
