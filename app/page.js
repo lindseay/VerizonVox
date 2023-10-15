@@ -11,6 +11,7 @@ export default function Home() {
   const msg = new SpeechSynthesisUtterance();
   const [prediction, setPrediction] = useState(null);
   const [error, setError] = useState(null);
+  const [data, setData] = useState(null);
   const replicate = new Replicate({
     auth: process.env.REPLICATE_API_TOKEN,
   });
@@ -23,42 +24,32 @@ export default function Home() {
     query = query.replaceAll("%2F", "/");
     query = query.replaceAll("%3A", ":");
     e.preventDefault();
-    /*
-    const response = await fetch("/api/predictions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
-      },
-      body: JSON.stringify({
-        //image: "https://avatars.githubusercontent.com/u/147882946?v=4"
-        //image: "https://replicate.delivery/mgxm/8b4d747d-feca-477d-8069-ee4d5f89ad8e/a_high_detail_shot_of_a_cat_wearing_a_suit_realism_8k_-n_9_.png"
-        //image: "https://i.postimg.cc/gkM73gkt/laptop.png"
-        //        https%3A%2F%2Fi.postimg.cc%2FgkM73gkt%2Flaptop.png
-        image: query,
-        prompt: "Describe this contents of this image in the style of a product description. Be concise and limit to 2 sentences."
-      }),
-    });
-    */
-    const output = await replicate.run(
-      "daanelson/minigpt-4:b96a2f33cc8e4b0aa23eacfce731b9c41a7d9466d9ed4e167375587b54db9423",
-      {
+    
+    try {
+      const response = await fetch("/api/predictions", {
         method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
-      },
-        input: {
-          image: "https://i.postimg.cc/gkM73gkt/laptop.png",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
+        },
+        body: JSON.stringify({
+          //image: "https://avatars.githubusercontent.com/u/147882946?v=4"
+          //image: "https://replicate.delivery/mgxm/8b4d747d-feca-477d-8069-ee4d5f89ad8e/a_high_detail_shot_of_a_cat_wearing_a_suit_realism_8k_-n_9_.png"
+          //image: "https://i.postimg.cc/gkM73gkt/laptop.png"
+          //        https%3A%2F%2Fi.postimg.cc%2FgkM73gkt%2Flaptop.png
+          image: query,
           prompt: "Describe this contents of this image in the style of a product description. Be concise and limit to 2 sentences."
-        }
-      }
-    );
-    console.log(output);
-    /*
+        }),
+      });
+      setData(await response.json());
+    } catch (error) {
+      console.log(error);
+    }
+    
     msg.text = "Loading...";
     window.speechSynthesis.speak(msg);
-    let prediction = await response.json();
+    let prediction = data;
+    //let prediction = await response.json();
     //console.log(prediction);
     if (response.status !== 201) {
       setError(prediction.detail);
@@ -86,7 +77,7 @@ export default function Home() {
       console.log({prediction})
       setPrediction(prediction);
     }
-    */
+    
     
   };
 
