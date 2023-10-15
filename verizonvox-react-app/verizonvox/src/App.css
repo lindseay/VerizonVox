@@ -43,5 +43,9 @@ h1 {
   .space-between-rows {
     padding: 35px;
   }
-  
+
+  .enlarged-product {
+    border: 5px solid #FAF6AE;
+    border-radius: 25px;
+  }
   
