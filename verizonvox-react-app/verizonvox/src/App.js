@@ -20,16 +20,19 @@ const App = () => {
   const selectedIdxRef = useRef(selectedIdx);
 
   const pictureComponents = [
-    <ProductListing1 key={0} isSelected={selectedIdx === 0} image_directory={"../public/verizon-product-images/apple-ipad-10th-generation.png"}/>,
-    <ProductListing2 key={1} isSelected={selectedIdx === 1} image_directory={"../public/verizon-product-images/orbic-airsurf.png"}/>,
-    <ProductListing3 key={2} isSelected={selectedIdx === 2} image_directory={"../public/verizon-product-images/orbic-chromebook.png"}/>,
-    <ProductListing4 key={3} isSelected={selectedIdx === 3} image_directory={"../public/verizon-product-images/razer-edge-5g.png"}/>,
-    <ProductListing5 key={4} isSelected={selectedIdx === 4} image_directory={"../public/verizon-product-images/samsung-galaxy-tab-a7lite.png"}/>,
-    <ProductListing6 key={5} isSelected={selectedIdx === 5} image_directory={"../public/verizon-product-images/samsung-galaxy-tab-s85g.png"}/>,
+    <ProductListing1 key={0} isSelected={selectedIdx === 0} name = {"Apple iPad (10th Generation)"} image_directory={"../public/verizon-product-images/apple-ipad-10th-generation.png"}/>,
+    <ProductListing2 key={1} isSelected={selectedIdx === 1} name = {"Orbic Airsurf 5G UW"} image_directory={"../public/verizon-product-images/orbic-airsurf.png"}/>,
+    <ProductListing3 key={2} isSelected={selectedIdx === 2} name = {"Orbic Chromebook"} image_directory={"../public/verizon-product-images/orbic-chromebook.png"}/>,
+    <ProductListing4 key={3} isSelected={selectedIdx === 3} name = {"RAZER Edge 5G"} image_directory={"../public/verizon-product-images/razer-edge-5g.png"}/>,
+    <ProductListing5 key={4} isSelected={selectedIdx === 4} name = {"Samsung Galaxy Tab S7 F E"} image_directory={"../public/verizon-product-images/samsung-galaxy-tab-a7lite.png"}/>,
+    <ProductListing6 key={5} isSelected={selectedIdx === 5} name = {"Samsung Galaxy Tab S8+ 5G"} image_directory={"../public/verizon-product-images/samsung-galaxy-tab-s85g.png"}/>,
   ];
 
   useEffect(() => {
     selectedIdxRef.current = selectedIdx;
+    const msg = new SpeechSynthesisUtterance();
+    msg.text = pictureComponents[selectedIdx].props.name;
+    window.speechSynthesis.speak(msg);
   }, [selectedIdx]);
 
   const handleKeyPress = (event) => {
