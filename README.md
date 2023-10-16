@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Members of our Team
+Lindsey Seay (Department: Computer & Information Science & Engineering)\
+Grace Hu (Department: Computer & Information Science & Engineering)\
+Olivia Bronstein (Department: Computer & Information Science & Engineering)\
+Alex Chase (Department: Electrical & Computer Engineering)\
+
 ## How to run VerizonVox 
 1.) Clone the repository\
 2.) run 'npm run dev' in the most top level directory (VerizonVox/)\
